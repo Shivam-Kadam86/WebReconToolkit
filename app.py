@@ -347,10 +347,40 @@ def generate_final_report(results):
     with col4:
         st.metric("Low Severity", low_severity)
     
-    # Export functionality
-    report_generator = ReportGenerator()
+    # Company Information Section
+    st.subheader("📋 Company Information (Optional)")
+    st.markdown("*Add company details to include in the PDF report:*")
     
     col1, col2 = st.columns(2)
+    
+    with col1:
+        company_name = st.text_input("Company Name", placeholder="e.g., ACME Corporation")
+        company_contact = st.text_input("Contact Person", placeholder="e.g., John Smith, CISO")
+        company_email = st.text_input("Contact Email", placeholder="e.g., security@company.com")
+    
+    with col2:
+        company_address = st.text_area("Company Address", placeholder="e.g., 123 Main St, City, State")
+        assessment_type = st.selectbox("Assessment Type", 
+                                     ["External Penetration Test", "Internal Security Assessment", 
+                                      "Compliance Audit", "Vulnerability Assessment", "Custom Assessment"])
+        company_phone = st.text_input("Contact Phone", placeholder="e.g., +1-555-123-4567")
+    
+    # Prepare company info
+    company_info = {
+        "Company Name": company_name,
+        "Contact Person": company_contact,
+        "Contact Email": company_email,
+        "Contact Phone": company_phone,
+        "Company Address": company_address,
+        "Assessment Type": assessment_type
+    } if any([company_name, company_contact, company_email, company_address, company_phone]) else None
+    
+    # Export functionality
+    st.markdown("---")
+    st.subheader("📊 Download Reports")
+    report_generator = ReportGenerator()
+    
+    col1, col2, col3 = st.columns(3)
     
     with col1:
         if st.button("📄 Download JSON Report"):
@@ -370,6 +400,16 @@ def generate_final_report(results):
                 data=csv_report,
                 file_name=f"webrecon_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
                 mime="text/csv"
+            )
+    
+    with col3:
+        if st.button("📑 Download PDF Report"):
+            pdf_report = report_generator.generate_pdf_report(results, company_info)
+            st.download_button(
+                label="Download PDF",
+                data=pdf_report,
+                file_name=f"webrecon_security_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                mime="application/pdf"
             )
 
 if __name__ == "__main__":
