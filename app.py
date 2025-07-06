@@ -403,21 +403,46 @@ def main():
     
     # API Key Management
     with st.sidebar.expander("🔑 API KEY MANAGEMENT"):
-        st.markdown("**OpenAI API Key Configuration**")
-        new_api_key = st.text_input(
-            "Enter new OpenAI API Key",
-            type="password",
-            placeholder="sk-...",
-            help="Update your OpenAI API key for AI explanations"
+        st.markdown("**API Key Configuration**")
+        
+        # API Provider Selection
+        api_provider = st.selectbox(
+            "Select API Provider",
+            ["OpenAI", "Anthropic", "Google", "Custom"],
+            help="Choose your AI API provider"
         )
+        
+        # Dynamic placeholder and validation based on provider
+        placeholders = {
+            "OpenAI": "sk-...",
+            "Anthropic": "sk-ant-...", 
+            "Google": "AIza...",
+            "Custom": "your-api-key"
+        }
+        
+        env_vars = {
+            "OpenAI": "OPENAI_API_KEY",
+            "Anthropic": "ANTHROPIC_API_KEY",
+            "Google": "GOOGLE_API_KEY", 
+            "Custom": "AI_API_KEY"
+        }
+        
+        new_api_key = st.text_input(
+            f"Enter {api_provider} API Key",
+            type="password",
+            placeholder=placeholders[api_provider],
+            help=f"Update your {api_provider} API key for AI analysis"
+        )
+        
         if st.button("🔄 UPDATE API KEY"):
-            if new_api_key and new_api_key.startswith("sk-"):
+            if new_api_key and len(new_api_key.strip()) > 10:
                 import os
-                os.environ["OPENAI_API_KEY"] = new_api_key
-                st.success("API key updated successfully!")
+                env_var = env_vars[api_provider]
+                os.environ[env_var] = new_api_key.strip()
+                st.success(f"{api_provider} API key updated successfully!")
                 st.rerun()
             else:
-                st.error("Invalid API key format. Must start with 'sk-'")
+                st.error("Invalid API key. Must be at least 10 characters long")
     
     # Authorization confirmation
     st.sidebar.subheader("🔐 ACCESS AUTHORIZATION")

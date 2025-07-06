@@ -1,19 +1,42 @@
 import json
 import os
-from openai import OpenAI
 
 class AIExplainer:
     def __init__(self):
-        self.api_key = os.getenv("OPENAI_API_KEY", "")
-        if self.api_key:
-            self.client = OpenAI(api_key=self.api_key)
-        else:
-            self.client = None
+        # Check for different API providers
+        self.openai_key = os.getenv("OPENAI_API_KEY", "")
+        self.anthropic_key = os.getenv("ANTHROPIC_API_KEY", "")
+        self.google_key = os.getenv("GOOGLE_API_KEY", "")
+        self.custom_key = os.getenv("AI_API_KEY", "")
+        
+        # Initialize client based on available keys
+        self.client = None
+        self.provider = None
+        
+        if self.openai_key:
+            try:
+                from openai import OpenAI
+                self.client = OpenAI(api_key=self.openai_key)
+                self.provider = "OpenAI"
+            except ImportError:
+                pass
+        elif self.anthropic_key:
+            self.provider = "Anthropic"
+            # Anthropic client would be initialized here if library is available
+        elif self.google_key:
+            self.provider = "Google"
+            # Google client would be initialized here if library is available  
+        elif self.custom_key:
+            self.provider = "Custom"
+            # Custom API client logic would go here
     
     def explain_vulnerability(self, vulnerability):
         """Generate AI explanation for a vulnerability"""
-        if not self.client:
-            return "AI explanations require OpenAI API key to be configured."
+        if not self.client and not self.provider:
+            return "AI explanations require an API key to be configured. Please set up your API key in the sidebar."
+        
+        if self.provider == "OpenAI" and not self.client:
+            return "OpenAI client initialization failed. Please check your API key."
         
         try:
             prompt = f"""
@@ -39,25 +62,34 @@ class AIExplainer:
             - prevention: Best practices to prevent this issue
             """
             
-            # the newest OpenAI model is "gpt-4o" which was released May 13, 2024.
-            # do not change this unless explicitly requested by the user
-            response = self.client.chat.completions.create(
-                model="gpt-4o",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are a cybersecurity expert providing educational explanations about security vulnerabilities. Provide clear, actionable advice for security professionals."
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                response_format={"type": "json_object"},
-                max_tokens=1500
-            )
-            
-            explanation_data = json.loads(response.choices[0].message.content)
+            if self.provider == "OpenAI" and self.client:
+                # the newest OpenAI model is "gpt-4o" which was released May 13, 2024.
+                # do not change this unless explicitly requested by the user
+                response = self.client.chat.completions.create(
+                    model="gpt-4o",
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": "You are a cybersecurity expert providing educational explanations about security vulnerabilities. Provide clear, actionable advice for security professionals."
+                        },
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
+                    response_format={"type": "json_object"},
+                    max_tokens=1500
+                )
+                explanation_data = json.loads(response.choices[0].message.content or "{}")
+            else:
+                # For other providers, return a structured response
+                explanation_data = {
+                    "explanation": f"AI explanation available with {self.provider} provider.",
+                    "risk": f"Risk analysis for {vulnerability.get('title', 'Unknown')}",
+                    "exploitation": "Exploitation details would be provided with full API integration.",
+                    "remediation": "Remediation steps would be provided with full API integration.",
+                    "prevention": "Prevention measures would be provided with full API integration."
+                }
             
             # Format the explanation for display
             formatted_explanation = self._format_explanation(explanation_data)
