@@ -102,8 +102,21 @@ WebRecon is a comprehensive web penetration testing toolkit built with Python an
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Theme preference: Hacker/cyberpunk aesthetic with dark colors and green matrix-style design.
+
+## Recent Changes
+
+- July 06, 2025: Converted entire application to hacker theme
+  - Dark background (#0a0a0a) with matrix green (#00ff41) accents
+  - Cyberpunk-style UI elements with glowing effects
+  - Terminal/monospace fonts throughout interface
+  - Hacker-themed text and terminology
+  - Animated scanning effects in header
+  - Color-coded vulnerability cards with cyber aesthetics
+  - Updated all UI text to match hacker/penetration testing theme
 
 ## Changelog
 
 Changelog:
 - July 06, 2025. Initial setup
+- July 06, 2025. Hacker theme implementation
