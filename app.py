@@ -35,6 +35,7 @@ st.markdown("""
         padding: 1.5rem;
         margin: 1.5rem 0;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        color: #000000;
     }
     .vulnerability-high {
         background-color: #f8d7da;
@@ -43,6 +44,7 @@ st.markdown("""
         margin: 0.8rem 0;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        color: #000000;
     }
     .vulnerability-medium {
         background-color: #fff3cd;
@@ -51,6 +53,7 @@ st.markdown("""
         margin: 0.8rem 0;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        color: #000000;
     }
     .vulnerability-low {
         background-color: #d1ecf1;
@@ -59,6 +62,7 @@ st.markdown("""
         margin: 0.8rem 0;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        color: #000000;
     }
 </style>
 """, unsafe_allow_html=True)
