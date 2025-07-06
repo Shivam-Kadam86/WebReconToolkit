@@ -30,28 +30,35 @@ st.markdown("""
     }
     .warning-box {
         background-color: #fff3cd;
-        border: 1px solid #ffeaa7;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
+        border: 2px solid #f39c12;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .vulnerability-high {
         background-color: #f8d7da;
-        border-left: 4px solid #dc3545;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        border-left: 5px solid #dc3545;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .vulnerability-medium {
         background-color: #fff3cd;
-        border-left: 4px solid #ffc107;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        border-left: 5px solid #ffc107;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .vulnerability-low {
         background-color: #d1ecf1;
-        border-left: 4px solid #17a2b8;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        border-left: 5px solid #17a2b8;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -113,6 +120,9 @@ def main():
         help="You must have explicit permission to test the target URL"
     )
     
+    # Always display welcome information first
+    display_welcome_info()
+    
     # Main content area
     if target_url and authorized:
         if validate_url(target_url):
@@ -133,10 +143,6 @@ def main():
     
     elif target_url and not authorized:
         st.error("You must confirm authorization before starting a scan")
-    
-    else:
-        # Display welcome information
-        display_welcome_info()
 
 def validate_url(url):
     """Validate the input URL format"""
@@ -168,7 +174,9 @@ def display_welcome_info():
         - **AI Explanations**: Detailed vulnerability explanations
         """)
     
+    st.markdown("---")
     st.markdown("## 📊 Example Security Report")
+    st.markdown("*This is what vulnerability findings look like:*")
     
     # Example vulnerability display
     st.markdown("""
@@ -182,6 +190,13 @@ def display_welcome_info():
     <div class="vulnerability-medium">
         <strong>MEDIUM SEVERITY</strong> - Directory Listing Enabled<br>
         <small>Web server allows directory browsing which may expose sensitive files.</small>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div class="vulnerability-low">
+        <strong>LOW SEVERITY</strong> - Server Information Disclosure<br>
+        <small>Server header reveals software version information to potential attackers.</small>
     </div>
     """, unsafe_allow_html=True)
 
