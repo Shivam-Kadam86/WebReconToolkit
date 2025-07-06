@@ -121,7 +121,10 @@ class ReportGenerator:
         categories = {}
         for finding in findings:
             category = self._categorize_finding(finding)
-            categories[category] = categories.get(category, 0) + 1
+            if category in categories:
+                categories[category] += 1
+            else:
+                categories[category] = 1
         
         summary['categories'] = categories
         return summary

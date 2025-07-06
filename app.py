@@ -401,6 +401,24 @@ def main():
         threads = st.slider("THREAD COUNT", 1, 10, 5)
         ai_explanations = st.checkbox("🤖 AI CYBER ANALYSIS", value=True)
     
+    # API Key Management
+    with st.sidebar.expander("🔑 API KEY MANAGEMENT"):
+        st.markdown("**OpenAI API Key Configuration**")
+        new_api_key = st.text_input(
+            "Enter new OpenAI API Key",
+            type="password",
+            placeholder="sk-...",
+            help="Update your OpenAI API key for AI explanations"
+        )
+        if st.button("🔄 UPDATE API KEY"):
+            if new_api_key and new_api_key.startswith("sk-"):
+                import os
+                os.environ["OPENAI_API_KEY"] = new_api_key
+                st.success("API key updated successfully!")
+                st.rerun()
+            else:
+                st.error("Invalid API key format. Must start with 'sk-'")
+    
     # Authorization confirmation
     st.sidebar.subheader("🔐 ACCESS AUTHORIZATION")
     authorized = st.sidebar.checkbox(
@@ -659,14 +677,18 @@ def generate_final_report(results):
             )
     
     with col3:
-        if st.button("📑 Download PDF Report"):
+        try:
             pdf_report = report_generator.generate_pdf_report(results)
             st.download_button(
-                label="Download Professional PDF Report",
+                label="📑 Download PDF Report",
                 data=pdf_report,
                 file_name=f"security_assessment_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
-                mime="application/pdf"
+                mime="application/pdf",
+                key="pdf_download"
             )
+        except Exception as e:
+            st.error(f"PDF generation failed: {str(e)}")
+            st.info("Please ensure all scan data is available before generating PDF")
 
 if __name__ == "__main__":
     main()
