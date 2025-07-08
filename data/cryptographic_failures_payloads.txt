@@ -1,0 +1,374 @@
+# OWASP A02:2021 - Cryptographic Failures Payloads
+# Complete collection of cryptographic attack vectors
+
+# Weak Encryption Detection
+md5
+MD5
+sha1
+SHA1
+DES
+3DES
+RC4
+base64
+Base64
+BASE64
+
+# Common Hash Patterns
+5d41402abc4b2a76b9719d911017c592
+098f6bcd4621d373cade4e832627b4f6
+aab3238922bcc25a6f606eb525ffdc56
+900150983cd24fb0d6963f7d28e17f72
+5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
+cf23df2207d99a052f38e4aa62573fd71d9ead2b6a0bb0f5e5b8df8f8fd43d8d
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+b61984b437bbeb8f5bc8e4ba75a87e85
+d131dd02c5e6eec4693d9a0698aff95c2fcab58712467eab4004583eb8fb7f89
+
+# Weak SSL/TLS Detection
+SSLv2
+SSLv3
+TLSv1.0
+TLS1.0
+RC4-MD5
+RC4-SHA
+DES-CBC-SHA
+DES-CBC3-SHA
+NULL-MD5
+NULL-SHA
+EXP-RC4-MD5
+EXP-RC2-CBC-MD5
+EXP-DES-CBC-SHA
+EXP-EDH-RSA-DES-CBC-SHA
+EXP-ADH-RC4-MD5
+EXP-ADH-DES-CBC-SHA
+
+# Certificate Validation Bypass
+self-signed
+localhost
+127.0.0.1
+*.local
+*.localhost
+invalid-certificate
+expired-certificate
+wrong-hostname
+untrusted-ca
+
+# Weak Random Number Generation
+rand()
+srand()
+random()
+Math.random()
+System.currentTimeMillis()
+new Date().getTime()
+timestamp
+uniqid()
+mt_rand()
+rand(0,9999)
+random.randint(0,9999)
+
+# Key Management Issues
+hardcoded-key
+default-key
+empty-key
+null-key
+test-key
+debug-key
+dev-key
+admin-key
+root-key
+master-key
+secret-key
+private-key
+public-key
+symmetric-key
+shared-key
+
+# Weak Password Hashing
+plaintext
+plain
+clear
+unsalted
+md5-password
+sha1-password
+crypt()
+PASSWORD()
+ENCRYPT()
+
+# Common Encryption Patterns
+AES-ECB
+DES-ECB
+3DES-ECB
+Blowfish-ECB
+RC4
+RC2
+DES
+3DES
+
+# Weak Key Derivation
+PBKDF1
+MD5-based-KDF
+SHA1-based-KDF
+single-iteration
+low-iteration
+no-salt
+static-salt
+weak-salt
+
+# Common Crypto Libraries Misuse
+Crypto.Random.random()
+SecureRandom.getInstance("SHA1PRNG")
+new Random(System.currentTimeMillis())
+Random.Range()
+UnityEngine.Random
+java.util.Random
+Math.random
+
+# Insecure Storage Patterns
+localStorage.setItem("password", password)
+sessionStorage.setItem("token", token)
+Cookie: password=plaintext
+Cookie: secret=base64encoded
+hidden field password
+password in URL
+token in URL
+key in URL
+secret in URL
+
+# Cryptographic Oracle Attacks
+padding-oracle
+timing-oracle
+chosen-plaintext
+chosen-ciphertext
+known-plaintext
+frequency-analysis
+
+# Side-Channel Attack Vectors
+timing-attack
+cache-attack
+power-analysis
+acoustic-attack
+electromagnetic-attack
+differential-fault-analysis
+
+# Weak Key Exchange
+RSA-512
+RSA-1024
+DH-512
+DH-1024
+ECDH-P192
+ECDH-P224
+DSA-512
+DSA-1024
+
+# Insecure Protocols
+HTTP
+FTP
+TELNET
+SMTP
+POP3
+IMAP
+SNMP
+LDAP
+NFS
+SMB
+
+# Common Vulnerabilities
+POODLE
+BEAST
+BREACH
+CRIME
+FREAK
+Logjam
+Sweet32
+DROWN
+ROBOT
+Bleichenbacher
+
+# Weak Ciphers
+NULL
+EXPORT
+LOW
+MEDIUM
+ADH
+AECDH
+aNULL
+eNULL
+kDHE
+kEECDH
+kRSA
+kDHr
+kDHd
+kEDH
+
+# Insecure Hash Functions
+MD2
+MD4
+MD5
+SHA0
+SHA1
+RIPEMD
+HAVAL
+GOST
+
+# Weak MAC Algorithms
+HMAC-MD5
+HMAC-SHA1
+CBC-MAC
+PMAC
+VMAC
+UMAC
+
+# Poor Entropy Sources
+/dev/random
+/dev/urandom
+RDRAND
+system-time
+process-id
+memory-address
+counter
+sequence
+
+# Key Reuse Patterns
+nonce-reuse
+IV-reuse
+key-reuse
+salt-reuse
+seed-reuse
+
+# Weak PRNGs
+Linear Congruential Generator
+Mersenne Twister
+Blum Blum Shub
+RC4
+LFSR
+
+# Certificate Pinning Bypass
+bypass-pinning
+ignore-certificate
+trust-all-certs
+disable-ssl-verification
+allow-all-hostname-verifier
+
+# Common Misconfigurations
+default-certificate
+wildcard-certificate
+long-lived-certificate
+weak-certificate-chain
+missing-certificate-transparency
+
+# Downgrade Attacks
+protocol-downgrade
+cipher-downgrade
+hash-downgrade
+key-downgrade
+version-downgrade
+
+# Injection in Crypto Context
+sql-in-key
+xss-in-certificate
+ldap-in-dn
+command-in-passphrase
+path-traversal-in-keystore
+
+# Timing Analysis Targets
+string-comparison
+password-verification
+token-validation
+signature-verification
+decryption-operation
+hash-computation
+
+# Weak Algorithm Parameters
+small-prime
+composite-modulus
+weak-generator
+predictable-parameter
+insufficient-rounds
+short-key-length
+
+# Format String in Crypto
+format-string-key
+format-string-iv
+format-string-salt
+format-string-passphrase
+
+# Buffer Overflow in Crypto
+overflow-in-key
+overflow-in-plaintext
+overflow-in-ciphertext
+overflow-in-signature
+overflow-in-hash
+
+# Information Disclosure
+error-message-leak
+timing-leak
+cache-leak
+memory-leak
+side-channel-leak
+debug-information-leak
+
+# Weak Session Management
+predictable-session-id
+sequential-session-id
+short-session-id
+reused-session-id
+exposed-session-id
+unencrypted-session
+
+# Poor Key Storage
+key-in-code
+key-in-config
+key-in-database
+key-in-file
+key-in-memory
+key-in-log
+key-in-backup
+key-in-version-control
+
+# Cryptographic Bypass
+crypto-bypass
+validation-bypass
+authentication-bypass
+authorization-bypass
+integrity-bypass
+confidentiality-bypass
+
+# Weak Digital Signatures
+DSA-SHA1
+RSA-MD5
+ECDSA-SHA1
+RSA-PKCS1-v1.5
+weak-signature-scheme
+malleable-signature
+
+# Poor Certificate Management
+expired-certificate
+revoked-certificate
+self-signed-certificate
+weak-ca-certificate
+missing-intermediate-certificate
+certificate-chain-validation-bypass
+
+# Insecure Key Agreement
+static-DH
+static-ECDH
+unauthenticated-DH
+weak-DH-parameters
+small-subgroup-attack
+
+# Cryptographic Implementation Flaws
+constant-time-violation
+memory-management-error
+state-confusion
+implementation-specific-attack
+library-specific-vulnerability
+
+# Data Exposure Patterns
+sensitive-data-in-url
+sensitive-data-in-log
+sensitive-data-in-error
+sensitive-data-in-backup
+sensitive-data-in-cache
+sensitive-data-in-temp
+sensitive-data-in-swap
+sensitive-data-in-memory-dump
